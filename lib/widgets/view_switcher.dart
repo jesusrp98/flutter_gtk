@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import '../models/index.dart';
-
-enum ViewSwitcherStyle { desktop, mobile }
+import 'index.dart';
 
 class AdwaitaViewSwitcher extends StatefulWidget {
   final List<ViewSwitcherData> tabs;
   final ValueChanged<int>? onViewChanged;
+  final ViewSwitcherStyle style;
   final int? initialValue;
 
   const AdwaitaViewSwitcher({
@@ -14,6 +14,7 @@ class AdwaitaViewSwitcher extends StatefulWidget {
     required this.tabs,
     this.onViewChanged,
     this.initialValue = 0,
+    this.style = ViewSwitcherStyle.desktop,
   })  : assert(tabs.length >= 2),
         super(key: key);
 
@@ -59,29 +60,10 @@ class _AdwaitaViewSwitcherState extends State<AdwaitaViewSwitcher> {
                   ),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24.0),
-                child: Row(
-                  children: [
-                    if (tab.icon != null)
-                      Icon(
-                        tab.icon,
-                        color: Color(0xFF2E3436),
-                      ),
-                    if (tab.icon != null && tab.title != null)
-                      SizedBox(width: 8),
-                    if (tab.title != null)
-                      Text(
-                        tab.title!,
-                        style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                              color: Color(0xFF2E3436),
-                              fontWeight: isTabSelected(tab)
-                                  ? FontWeight.bold
-                                  : FontWeight.normal,
-                            ),
-                      ),
-                  ],
-                ),
+              child: AdwaitaViewSwitcherTab(
+                data: tab,
+                isSelected: isTabSelected(tab),
+                style: widget.style,
               ),
             ),
           )

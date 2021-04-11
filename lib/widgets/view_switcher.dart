@@ -26,7 +26,9 @@ class _AdwaitaViewSwitcherState extends State<AdwaitaViewSwitcher> {
 
   int get index => _index;
 
-  bool isTabSelected(ViewSwitcherData tab) => index == widget.tabs.indexOf(tab);
+  int tabIndex(ViewSwitcherData tab) => widget.tabs.indexOf(tab);
+
+  bool isTabSelected(ViewSwitcherData tab) => index == tabIndex(tab);
 
   @override
   Widget build(BuildContext context) {
@@ -34,30 +36,31 @@ class _AdwaitaViewSwitcherState extends State<AdwaitaViewSwitcher> {
       children: [
         for (final tab in widget.tabs)
           InkWell(
-            onTap: () {
-              final tapIndex = widget.tabs.indexOf(tab);
-
-              if (widget.onViewChanged != null) widget.onViewChanged!(tapIndex);
-              setState(() => _index = tapIndex);
-            },
-            child: AnimatedContainer(
-              duration: Duration(milliseconds: 150),
-              height: 48,
+            onTap: !isTabSelected(tab)
+                ? () {
+                    setState(() {
+                      _index = tabIndex(tab);
+                      if (widget.onViewChanged != null)
+                        widget.onViewChanged!(index);
+                    });
+                  }
+                : null,
+            child: Container(
+              height: double.infinity,
               decoration: BoxDecoration(
-                color: isTabSelected(tab)
-                    ? Color(0xFFD8D5CF)
-                    : Theme.of(context).primaryColor,
+                color:
+                    isTabSelected(tab) ? Color(0xFFD5D1CD) : Colors.transparent,
                 border: Border.symmetric(
                   vertical: BorderSide(
-                    width: 0.25,
+                    width: 1,
                     color: isTabSelected(tab)
-                        ? Color(0xffC1BAB5)
+                        ? Color(0xffCDC7C2)
                         : Colors.transparent,
                   ),
                 ),
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 24.0),
                 child: Row(
                   children: [
                     if (tab.icon != null)
@@ -66,7 +69,7 @@ class _AdwaitaViewSwitcherState extends State<AdwaitaViewSwitcher> {
                         color: Color(0xFF2E3436),
                       ),
                     if (tab.icon != null && tab.title != null)
-                      SizedBox(width: 6),
+                      SizedBox(width: 8),
                     if (tab.title != null)
                       Text(
                         tab.title!,

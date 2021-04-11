@@ -18,17 +18,24 @@ class AdwaitaHeaderBar extends StatelessWidget {
       alignment: Alignment.topCenter,
       child: Container(
         decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xffE1DEDB),
+              Color(0xFFDAD6D2),
+            ],
+          ),
           border: Border(
             bottom: BorderSide(
-              color: Color(0xffC1BAB5),
+              color: Color(0xffbfb8b1),
             ),
           ),
         ),
-        height: 48,
+        height: 47,
         width: double.infinity,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.symmetric(horizontal: 6.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

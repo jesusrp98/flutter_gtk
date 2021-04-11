@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/index.dart';
+import '../utils/index.dart';
 import 'index.dart';
 
 class AdwaitaViewSwitcher extends StatefulWidget {
@@ -49,13 +50,20 @@ class _AdwaitaViewSwitcherState extends State<AdwaitaViewSwitcher> {
             child: Container(
               height: double.infinity,
               decoration: BoxDecoration(
-                color:
-                    isTabSelected(tab) ? Color(0xFFD5D1CD) : Colors.transparent,
+                color: isTabSelected(tab)
+                    ? ThemePicker.of(context).pick(
+                        light: AdwaitaLightColors.headerSwitcherTabBackground,
+                        dark: AdwaitaDarkColors.headerSwitcherTabBackground,
+                      )
+                    : Colors.transparent,
                 border: Border.symmetric(
                   vertical: BorderSide(
                     width: 1,
                     color: isTabSelected(tab)
-                        ? Color(0xffCDC7C2)
+                        ? ThemePicker.of(context).pick(
+                            light: AdwaitaLightColors.headerSwitcherTabBorder,
+                            dark: AdwaitaDarkColors.headerSwitcherTabBorder,
+                          )
                         : Colors.transparent,
                   ),
                 ),

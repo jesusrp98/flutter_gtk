@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/index.dart';
+import '../utils/index.dart';
 
 class AdwaitaViewSwitcherTab extends StatelessWidget {
   final ViewSwitcherData data;
@@ -18,7 +19,10 @@ class AdwaitaViewSwitcherTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final icon = Icon(
       data.icon,
-      color: Color(0xFF2E3436),
+      color: ThemePicker.of(context).pick(
+        light: AdwaitaLightColors.headerSwitcherTabPrimary,
+        dark: AdwaitaDarkColors.headerSwitcherTabPrimary,
+      ),
     );
 
     return style == ViewSwitcherStyle.desktop
@@ -32,7 +36,10 @@ class AdwaitaViewSwitcherTab extends StatelessWidget {
                   Text(
                     data.title!,
                     style: Theme.of(context).textTheme.subtitle2?.copyWith(
-                          color: Color(0xFF2E3436),
+                          color: ThemePicker.of(context).pick(
+                            light: AdwaitaLightColors.headerSwitcherTabPrimary,
+                            dark: AdwaitaDarkColors.headerSwitcherTabPrimary,
+                          ),
                           fontWeight:
                               isSelected ? FontWeight.bold : FontWeight.normal,
                         ),
@@ -53,7 +60,10 @@ class AdwaitaViewSwitcherTab extends StatelessWidget {
                     data.title!,
                     style: Theme.of(context).textTheme.subtitle2?.copyWith(
                           fontSize: 12,
-                          color: Color(0xFF2E3436),
+                          color: ThemePicker.of(context).pick(
+                            light: AdwaitaLightColors.headerSwitcherTabPrimary,
+                            dark: AdwaitaDarkColors.headerSwitcherTabPrimary,
+                          ),
                           fontWeight:
                               isSelected ? FontWeight.bold : FontWeight.normal,
                         ),

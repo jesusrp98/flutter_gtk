@@ -12,10 +12,15 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        canvasColor: Color(0xFFF8F7F7),
+        canvasColor: AdwaitaLightColors.canvas,
         fontFamily: 'Cantarell',
       ),
-      themeMode: ThemeMode.light,
+      darkTheme: ThemeData(
+        canvasColor: AdwaitaDarkColors.canvas,
+        brightness: Brightness.dark,
+        fontFamily: 'Cantarell',
+      ),
+      themeMode: ThemeMode.dark,
       home: MyHomePage(),
     );
   }

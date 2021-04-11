@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/index.dart';
+
 class AdwaitaHeaderBar extends StatelessWidget {
   final Widget leading;
   final Widget center;
@@ -22,13 +24,22 @@ class AdwaitaHeaderBar extends StatelessWidget {
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: [
-              Color(0xffE1DEDB),
-              Color(0xFFDAD6D2),
+              ThemePicker.of(context).pick(
+                light: AdwaitaLightColors.headerBarBackgroundTop,
+                dark: AdwaitaDarkColors.headerBarBackgroundTop,
+              ),
+              ThemePicker.of(context).pick(
+                light: AdwaitaLightColors.headerBarBackgroundBottom,
+                dark: AdwaitaDarkColors.headerBarBackgroundBottom,
+              ),
             ],
           ),
           border: Border(
             bottom: BorderSide(
-              color: Color(0xffbfb8b1),
+              color: ThemePicker.of(context).pick(
+                light: AdwaitaLightColors.headerBarBottomBorder,
+                dark: AdwaitaDarkColors.headerBarBottomBorder,
+              ),
             ),
           ),
         ),

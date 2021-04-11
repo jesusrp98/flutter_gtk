@@ -61,6 +61,8 @@ static void my_application_activate(GApplication* application) {
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
 
   gtk_widget_grab_focus(GTK_WIDGET(view));
+
+  gtk_window_set_decorated(window, FALSE);
 }
 
 // Implements GApplication::local_command_line.

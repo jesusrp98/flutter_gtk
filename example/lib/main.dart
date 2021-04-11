@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gtk/flutter_gtk.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,32 +33,79 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          AdwaitaHeaderBar(
-            leading: AdwaitaHeaderButton(
-              icon: Icons.refresh,
-              onTap: () => null,
-            ),
-            center: AdwaitaViewSwitcher(
-              tabs: [
-                ViewSwitcherData(
-                  icon: Icons.article_outlined,
-                  title: 'My List',
-                ),
-                ViewSwitcherData(
-                  icon: Icons.star_outline,
-                  title: 'Favorites',
-                ),
-                ViewSwitcherData(
-                  icon: Icons.folder_open,
-                  title: 'Archived',
-                ),
-              ],
-            ),
-            trailling: AdwaitaHeaderButton(
-              icon: Icons.menu,
-              onTap: () => null,
+          GestureDetector(
+            behavior: HitTestBehavior.translucent,
+            onPanStart: (_) => appWindow.startDragging(),
+            // Commented because it adds delay when clicking on the headerbar
+            // onDoubleTap: () => appWindow.maximizeOrRestore(),
+            child: AdwaitaHeaderBar(
+              onMinimize: () => appWindow.minimize(),
+              onMaximize: () => appWindow.maximize(),
+              onClose: () => appWindow.close(),
+              leading: AdwaitaHeaderButton(
+                icon: Icons.add,
+                onTap: () => null,
+              ),
+              center: AdwaitaViewSwitcher(
+                tabs: [
+                  ViewSwitcherData(
+                    icon: Icons.language,
+                    title: 'World',
+                  ),
+                  ViewSwitcherData(
+                    icon: Icons.alarm,
+                    title: 'Alarms',
+                  ),
+                  ViewSwitcherData(
+                    icon: Icons.timer,
+                    title: 'Stopwatch',
+                  ),
+                  ViewSwitcherData(
+                    icon: Icons.hourglass_empty,
+                    title: 'Timer',
+                  ),
+                ],
+              ),
+              trailling: AdwaitaHeaderButton(
+                icon: Icons.menu,
+                onTap: () => null,
+              ),
             ),
           ),
+          Expanded(
+            child: Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.language,
+                    color: Color(0xff686867),
+                    size: 150,
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  TextButton(
+                    style: OutlinedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 18,
+                      ),
+                      shape: StadiumBorder(),
+                      backgroundColor: Color(0xff15539e),
+                      primary: Colors.white,
+                      textStyle:
+                          Theme.of(context).textTheme.bodyText1!.copyWith(
+                                fontWeight: FontWeight.w300,
+                              ),
+                    ),
+                    child: Text('Add World Clock'),
+                    onPressed: () => null,
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

@@ -17,8 +17,8 @@ class AdwaitaHeaderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 34,
-      width: title == null ? 36 : null,
+      height: 32,
+      width: title == null ? 34 : null,
       decoration: BoxDecoration(
         boxShadow: [
           // TODO update color & spread of shadow

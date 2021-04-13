@@ -36,11 +36,9 @@ class MyHomePage extends StatelessWidget {
           GestureDetector(
             behavior: HitTestBehavior.translucent,
             onPanStart: (_) => appWindow.startDragging(),
-            // Commented because it adds delay when clicking on the headerbar
-            // onDoubleTap: () => appWindow.maximizeOrRestore(),
             child: AdwaitaHeaderBar(
               onMinimize: () => appWindow.minimize(),
-              onMaximize: () => appWindow.maximize(),
+              onMaximize: () => appWindow.maximizeOrRestore(),
               onClose: () => appWindow.close(),
               leading: AdwaitaHeaderButton(
                 icon: Icons.add,

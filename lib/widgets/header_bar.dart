@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../utils/index.dart';
+import 'index.dart';
 
 class AdwaitaHeaderBar extends StatelessWidget {
   final Widget leading;
@@ -19,6 +20,9 @@ class AdwaitaHeaderBar extends StatelessWidget {
     this.onMaximize,
     this.onClose,
   }) : super(key: key);
+
+  bool get hasWindowControls =>
+      onClose != null || onMinimize != null || onMaximize != null;
 
   @override
   Widget build(BuildContext context) {
@@ -69,28 +73,24 @@ class AdwaitaHeaderBar extends StatelessWidget {
                   trailling,
                   Row(
                     children: [
-                      if (onClose != null ||
-                          onMinimize != null ||
-                          onMaximize != null)
-                        SizedBox(width: 16),
-                      if (onMinimize != null)
-                        IconButton(
-                          icon: Icon(Icons.minimize),
-                          iconSize: 14,
-                          onPressed: onMinimize,
-                        ),
-                      if (onMaximize != null)
-                        IconButton(
-                          icon: Icon(Icons.crop_square_sharp),
-                          iconSize: 14,
-                          onPressed: onMaximize,
-                        ),
-                      if (onClose != null)
-                        IconButton(
-                          icon: Icon(Icons.close),
-                          iconSize: 14,
-                          onPressed: onClose,
-                        ),
+                      if (hasWindowControls) SizedBox(width: 16),
+                      ...[
+                        if (onMinimize != null)
+                          WindowControlButton(
+                            child: Icon(Icons.minimize),
+                            onTap: onMinimize,
+                          ),
+                        if (onMaximize != null)
+                          WindowControlButton(
+                            child: Icon(Icons.crop_square_sharp),
+                            onTap: onMaximize,
+                          ),
+                        if (onClose != null)
+                          WindowControlButton(
+                            child: Icon(Icons.close),
+                            onTap: onClose,
+                          ),
+                      ].separate(11)
                     ],
                   ),
                 ],

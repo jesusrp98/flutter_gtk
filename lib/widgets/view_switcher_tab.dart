@@ -19,6 +19,7 @@ class AdwaitaViewSwitcherTab extends StatelessWidget {
   Widget build(BuildContext context) {
     final icon = Icon(
       data.icon,
+      size: 18,
       color: ThemePicker.of(context).pick(
         light: AdwaitaLightColors.headerSwitcherTabPrimary,
         dark: AdwaitaDarkColors.headerSwitcherTabPrimary,

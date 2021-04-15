@@ -35,6 +35,7 @@ class _AdwaitaViewSwitcherState extends State<AdwaitaViewSwitcher> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         for (final tab in widget.tabs)
           InkWell(

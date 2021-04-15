@@ -20,18 +20,6 @@ class AdwaitaHeaderButton extends StatelessWidget {
       height: 32,
       width: title == null ? 34 : null,
       decoration: BoxDecoration(
-        boxShadow: [
-          // TODO update color & spread of shadow
-          // BoxShadow(
-          //   color: ThemePicker.of(context).pick(
-          //     light: AdwaitaLightColors.headerButtonBorder,
-          //     dark: AdwaitaDarkColors.headerButtonBorder,
-          //   ),
-          //   offset: Offset(0.0, 1.0),
-          //   blurRadius: 1,
-          //   spreadRadius: -1,
-          // ),
-        ],
         borderRadius: BorderRadius.all(
           Radius.circular(5),
         ),
@@ -70,7 +58,7 @@ class AdwaitaHeaderButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (icon != null) Icon(icon, size: 21),
+            if (icon != null) Icon(icon, size: 17),
             if (icon != null && title != null) SizedBox(width: 6),
             if (title != null) Text(title!),
           ],

@@ -61,42 +61,47 @@ class AdwaitaHeaderBar extends StatelessWidget {
         ),
         height: 47,
         width: double.infinity,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 7.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              leading,
-              center,
-              Row(
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 7.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  trailling,
+                  leading,
                   Row(
                     children: [
-                      if (hasWindowControls) SizedBox(width: 16),
-                      ...[
-                        if (onMinimize != null)
-                          WindowControlButton(
-                            child: Icon(Icons.minimize),
-                            onTap: onMinimize,
-                          ),
-                        if (onMaximize != null)
-                          WindowControlButton(
-                            child: Icon(Icons.crop_square_sharp),
-                            onTap: onMaximize,
-                          ),
-                        if (onClose != null)
-                          WindowControlButton(
-                            child: Icon(Icons.close),
-                            onTap: onClose,
-                          ),
-                      ].separate(11)
+                      trailling,
+                      Row(
+                        children: [
+                          if (hasWindowControls) SizedBox(width: 16),
+                          ...[
+                            if (onMinimize != null)
+                              WindowControlButton(
+                                child: Icon(Icons.minimize),
+                                onTap: onMinimize,
+                              ),
+                            if (onMaximize != null)
+                              WindowControlButton(
+                                child: Icon(Icons.crop_square_sharp),
+                                onTap: onMaximize,
+                              ),
+                            if (onClose != null)
+                              WindowControlButton(
+                                child: Icon(Icons.close),
+                                onTap: onClose,
+                              ),
+                          ].separate(11)
+                        ],
+                      ),
                     ],
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            center,
+          ],
         ),
       ),
     );

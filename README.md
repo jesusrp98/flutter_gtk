@@ -2,13 +2,21 @@
 
 Implementation of GTK & Adwaita widgets in Flutter.
 
-This project aims to provide a set of tools and widgets derived from the GTK library for GNU+Linux systems.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jesusrp98/flutter_gtk/master/assets/flutter_loves_gtk.png" width="512">
+</p>
+
+This project aims to provide a set of tools and widgets derived from the [GTK library](https://www.gtk.org/) for GNU+Linux systems.
 
 It allows the development of apps for Linux desktops, and provides a similiar user experience compared to 'native' GTK-based apps.
 
 ## Example
 
-You can find an example app within this project. It emulates the Clock app for GNOME.
+You can find an example app within this project. It emulates the [Clock](https://flathub.org/apps/details/org.gnome.clocks) app for GNOME.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jesusrp98/flutter_gtk/master/assets/example.png" width="750">
+</p>
 
 ## Widgets
 

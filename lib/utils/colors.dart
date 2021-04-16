@@ -31,7 +31,7 @@ class AdwaitaDarkColors {
   static final headerButtonBackgroundTop = const Color(0xFF383838);
   static final headerButtonBackgroundBottom = const Color(0xFF333333);
   static final headerButtonBorder = const Color(0xFF1B1B1B);
-  static final headerButtonPrimary = const Color(0xFFE5E5E3);
+  static final headerButtonPrimary = const Color(0xFFEEEEEC);
 
   static final headerSwitcherTabPrimary = const Color(0xFFE6E6E4);
   static final headerSwitcherTabBackground = const Color(0xFF1E1E1E);

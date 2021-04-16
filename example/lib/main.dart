@@ -37,8 +37,8 @@ class MyHomePage extends StatelessWidget {
             behavior: HitTestBehavior.translucent,
             onPanStart: (_) => appWindow.startDragging(),
             child: AdwaitaHeaderBar(
-              onMinimize: () => appWindow.minimize(),
-              onMaximize: () => appWindow.maximizeOrRestore(),
+              // onMinimize: () => appWindow.minimize(),
+              // onMaximize: () => appWindow.maximizeOrRestore(),
               onClose: () => appWindow.close(),
               leading: AdwaitaHeaderButton(
                 icon: Icons.add,

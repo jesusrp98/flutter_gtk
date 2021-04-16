@@ -1,5 +1,5 @@
 name: flutter_gtk
-description: A new Flutter package project.
+description: Implementation of GTK & Adwaita widgets in Flutter.
 version: 0.0.1
 author:
 
@@ -15,4 +15,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+  fonts:
+    - family: Cantarell
+      fonts:
+        - asset: fonts/Cantarell-Regular.otf
 

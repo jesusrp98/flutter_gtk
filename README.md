@@ -10,17 +10,19 @@ This project aims to provide a set of tools and widgets derived from the [GTK li
 
 It allows the development of apps for Linux desktops, and provides a similiar user experience compared to 'native' GTK-based apps.
 
+Note that this package IS IN DEVELOPMENT, and help from both the Flutter and GTK community will be pretty apreciated.
+
 ## Example
 
 You can find an example app within this project. It emulates the [Clock](https://flathub.org/apps/details/org.gnome.clocks) app for GNOME.
+
+Added to the example app is the [bitsdojo_window](https://pub.dev/packages/bitsdojo_window) package, that allows you add window controll buttons, such as maximize & close, as well as delete all window decorators, as reflected in this [GitHub issue](https://github.com/bitsdojo/bitsdojo_window/issues/43).
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/jesusrp98/flutter_gtk/master/assets/example.png" width="750">
 </p>
 
 ## Widgets
-
-This is the list of all currently available widgets found in this package.
 
 ### AdwaitaHeaderBar
 
